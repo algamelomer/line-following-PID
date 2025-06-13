@@ -1,25 +1,25 @@
-Line-Following Robot with Memory-Based Turning
-This project implements a line-following robot using an Arduino microcontroller. The robot is designed to follow a black line on a white surface using IR sensors for line detection and PID control for smooth navigation. It also incorporates memory-based turning to handle sharp turns and maintain direction when the line is temporarily lost.
+🤖 Line-Following Robot with Memory-Based Turning
+This project implements a line-following robot using an Arduino microcontroller. The robot follows a black line on a white surface using IR sensors and PID control for smooth navigation, with memory-based turning to handle sharp turns and temporary line loss.
 
-Features
+📄 Features
 
-Line Following: Utilizes four IR sensors to detect and follow a black line.
-PID Control: Employs Proportional-Integral-Derivative control for precise and smooth line tracking.
-Memory-Based Turning: Remembers the last detected outer sensor to continue turning correctly even when the line is not detected.
-Sharp Turn Handling: Adjusts motor speeds to navigate sharp turns effectively.
-Adjustable Parameters: Allows tuning of PID constants and motor speeds for optimal performance.
-
-
-Hardware Requirements
-
-Microcontroller: Arduino board (e.g., Arduino Uno)
-IR Sensors: 4 IR sensors for line detection (L2, L1, R1, R2). Note: Sensor C is damaged and not used.
-Motors: 2 DC motors for left and right wheels.
-Motor Driver: Compatible motor driver (e.g., L298N) to control the motors.
-Power Supply: Battery or power source suitable for the motors and Arduino.
+🤖 Line Following: Utilizes four IR sensors to detect and follow a black line.
+🎛️ PID Control: Uses Proportional-Integral-Derivative control for precise tracking.
+🧠 Memory-Based Turning: Remembers the last outer sensor to maintain direction when the line is lost.
+🔄 Sharp Turn Handling: Adjusts motor speeds for sharp turns.
+⚙️ Adjustable Parameters: Tune PID constants and motor speeds for optimal performance.
 
 
-Pin Configuration
+🛠️ Hardware Requirements
+
+🤖 Microcontroller: Arduino board (e.g., Arduino Uno)
+👁️ IR Sensors: 4 IR sensors (L2, L1, R1, R2). ⚠️ Note: Sensor C is damaged and not used.
+⚡ Motors: 2 DC motors for left and right wheels.
+🖥️ Motor Driver: Compatible driver (e.g., L298N).
+🔋 Power Supply: Battery or source for motors and Arduino.
+
+
+📌 Pin Configuration
 IR Sensor Pins
 
 L2: A0
@@ -38,64 +38,52 @@ IN4: 5 (Right motor direction)
 ENB: 10 (PWM for right motor speed)
 
 
-Software Dependencies
+📦 Software Dependencies
 
-Arduino IDE: Required to upload the code to the Arduino board.
-No additional libraries: The code uses only standard Arduino functions.
-
-
-Installation and Setup
-
-Hardware Assembly:
-
-Connect the IR sensors to the specified analog pins (A0, A1, A3, A4).
-Connect the motor driver to the digital pins (5 to 10).
-Attach the motors to the motor driver outputs.
+Arduino IDE: For uploading code to the Arduino.
+No additional libraries: Uses standard Arduino functions.
 
 
-Upload the Code:
+🚀 Installation and Setup
 
-Open the Arduino IDE.
-Copy and paste the provided code into a new sketch.
-Select your Arduino board and the appropriate port.
-Upload the code to the Arduino.
-
-
-Calibration:
-
-Place the robot on the line and adjust the IR sensors to ensure proper alignment.
-Fine-tune the PID parameters (Kp, Ki, Kd) and speed settings (baseSpeed, maxSpeed, sharpTurnSpeed) if needed.
+Hardware Assembly: Connect IR sensors to analog pins (A0, A1, A3, A4), motor driver to digital pins (5-10), and motors to the driver.
+Upload Code: Open Arduino IDE, paste the code, select your board/port, and upload.
+Calibration: Align sensors over the line and adjust PID parameters if needed.
 
 
+🎮 Usage
+
+Power On: Position the robot on the line.
+Line Following: It follows the line using sensor data and PID control.
+Sharp Turns: Adjusts speeds for sharp turns.
+Memory-Based Turning: Continues turning based on the last sensor when the line is lost.
 
 
-Usage
+📝 Code Explanation
 
-Power On: Turn on the robot and position it on the line.
-Line Following: The robot will automatically follow the line using IR sensor data and PID control.
-Sharp Turns: When a sharp turn is detected (via outer sensors), the robot adjusts motor speeds to navigate it.
-Memory-Based Turning: If the line is lost temporarily, the robot uses memory of the last detected outer sensor to continue turning.
-
-
-Code Explanation
-
-Sensor Reading: The readLineSensor() function reads the four IR sensors and calculates an error value based on the line’s position.
-PID Control: The PID algorithm computes a correction value to adjust motor speeds and keep the robot on the line.
-Motor Control: The setMotorSpeed() function sets motor directions and speeds, clamping them within defined limits.
-Sharp Turn Handling: The makeSharpTurn() function adjusts motor speeds for sharp turns when outer sensors are triggered.
-Memory Logic: Outer sensor detections are stored with a timeout, enabling the robot to maintain direction during brief line losses.
+Sensor Reading: Reads IR sensors and calculates line position error.
+PID Control: Adjusts motor speeds for smooth tracking.
+Motor Control: Sets motor direction and speed.
+Sharp Turn Handling: Manages sharp turns with outer sensors.
+Memory Logic: Tracks outer sensor detections with a timeout.
 
 
-Troubleshooting
+🛡️ Troubleshooting
 
-Robot Not Following Line: Verify sensor alignment and ensure the line contrasts well with the surface.
-Erratic Behavior: Adjust PID parameters (Kp, Ki, Kd) for smoother control.
-Motors Not Working: Check motor driver connections and power supply.
-Sensor Malfunction: Test each IR sensor individually to ensure proper operation.
+Not Following Line: Check sensor alignment and line contrast.
+Erratic Behavior: Tune PID parameters.
+Motors Not Working: Verify connections and power.
 
 
-Contributing
-Contributions are welcome! Feel free to fork this project, enhance it, and submit pull requests with improvements.
+🤝 Contributing
+Fork this project and submit pull requests with improvements!
 
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
+📜 License
+MIT License. See LICENSE for details.
+
+Notes
+
+Emoji enhance readability and are supported in Markdown.
+Copy and paste emoji directly (e.g., 🤖 for robot).
+Ensure your platform (e.g., GitHub) supports emoji display.
+
